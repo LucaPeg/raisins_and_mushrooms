@@ -9,6 +9,8 @@ date: "2023-05-19"
 
 ```{r}
 library(ggplot2)
+library("GGally")
+
 ```
 
 
@@ -28,6 +30,12 @@ Correlogram (Aim: Find possible correlation among variables)
 
 ```{r}
 plot(data)
+data_corr = subset(data, select = -c(Class))
+ggpairs(data_corr, columns = 1:6, ggplot2::aes(colour= Class_literal))
+```
+Correlogram differentiating the classes
+```{r}
+ggpairs(data_corr, columns = 1:6, ggplot2::aes(colour= Class_literal))
 ```
 
 
